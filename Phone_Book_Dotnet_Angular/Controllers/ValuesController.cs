@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,12 +7,23 @@ namespace Phone_Book_Dotnet_Angular.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+
     public class ValuesController : ControllerBase
     {
+        
+
+
+        private readonly ILogger<ValuesController> _logger;
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async IEnumerable<string> Get()
         {
+            Program program = new Program();
+            await program.Main("f");
             return new string[] { "value1", "value2" };
         }
 
@@ -19,7 +31,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "valuetestbebra";
         }
 
         // POST api/<ValuesController>
