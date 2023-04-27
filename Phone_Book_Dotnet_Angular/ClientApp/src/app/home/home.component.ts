@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,8 +7,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public phones: string = "";
-  constructor() { }
+  public phones: PhonebookItem[] = [];
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<PhonebookItem[]>(baseUrl + 'phonebookitem').subscribe(result => {
+      this.phones = result;
+    }, error => console.error(error));
+  }
 
   ngOnInit(): void {
   }
