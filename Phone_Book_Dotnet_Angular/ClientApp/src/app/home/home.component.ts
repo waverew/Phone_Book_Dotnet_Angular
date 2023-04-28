@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public phones: string = '';
+  public phones: Values[] = [];
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<string>(baseUrl + 'values/1').subscribe(result => {
+    http.get<Values[]>(baseUrl + 'values').subscribe(result => {
       this.phones = result;
     }, error => console.error(error));
   }
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   }
 
 }
-interface PhonebookItem {
+interface Values {
+  surname: string;
   name: string;
+  phone: string;
 }

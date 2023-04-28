@@ -16,7 +16,12 @@ namespace Phone_Book_Dotnet_Angular
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
             var values = JsonSerializer.Deserialize<List<Values>>(jsond);
-            Console.WriteLine(values[0].Phone);
+            for (int i = 0; i < values.Count; i++)
+            {
+                Console.WriteLine(values[i].Surname);
+                Console.WriteLine(values[i].Name);
+                Console.WriteLine(values[i].Phone);
+            }
             return values;
         }
         public string Kekw()

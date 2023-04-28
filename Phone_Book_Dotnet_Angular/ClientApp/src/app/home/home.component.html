@@ -5,6 +5,16 @@
     </h1>
   </div>
   <div *ngIf="phones" class="phones">
-    <div>{{phones}}</div>
+    <div>
+      <div *ngFor="let phone of phones" class="wrap-cont">
+        <div class="phones-cont">
+          <img />
+          <p>{{phone.surname}}</p>
+          <p>{{phone.name}}</p>
+          <p>{{phone.phone}}</p>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
