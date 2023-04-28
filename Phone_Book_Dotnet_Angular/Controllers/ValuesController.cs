@@ -20,11 +20,11 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         }
         // GET: api/<ValuesController>
         [HttpGet]
-        public async IEnumerable<string> Get()
+        public string Get()
         {
             Program program = new Program();
-            await program.Main("f");
-            return new string[] { "value1", "value2" };
+            return program.Main();
+            
         }
 
         // GET api/<ValuesController>/5

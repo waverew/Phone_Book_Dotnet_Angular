@@ -11,16 +11,17 @@ namespace Phone_Book_Dotnet_Angular
     }
     public class Program
     {
-        public async Task Main(string b)
+        public string phonebook = "./Controllers/Phonebook.json";
+        public string Main()
         {
-            string phonebook = "../Phonebook.json";
-            using FileStream jsond = File.OpenRead(phonebook);
-            Values? values = await JsonSerializer.DeserializeAsync<Values>(jsond);
-            Console.WriteLine(values);
+            using FileStream jsond = File.OpenRead(this.phonebook);
+            var values = JsonSerializer.Deserialize<List<Values>>(jsond);
+            Console.WriteLine(values[0].Phone);
+            return values[0].Name;
         }
-        public void Kekw()
+        public string Kekw()
         {
-            Console.WriteLine("ti ebalsa?");
+            return("ti ebalsa?");
         }
     }
 }
