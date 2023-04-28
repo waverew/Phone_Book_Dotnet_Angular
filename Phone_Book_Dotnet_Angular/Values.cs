@@ -12,12 +12,12 @@ namespace Phone_Book_Dotnet_Angular
     public class Program
     {
         public string phonebook = "./Controllers/Phonebook.json";
-        public string Main()
+        public List<Values> Main()
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
             var values = JsonSerializer.Deserialize<List<Values>>(jsond);
             Console.WriteLine(values[0].Phone);
-            return values[0].Name;
+            return values;
         }
         public string Kekw()
         {

@@ -20,7 +20,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         }
         // GET: api/<ValuesController>
         [HttpGet]
-        public string Get()
+        public List<Values> Get()
         {
             Program program = new Program();
             return program.Main();
