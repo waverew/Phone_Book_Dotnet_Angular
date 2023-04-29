@@ -10,8 +10,8 @@ namespace Phone_Book_Dotnet_Angular.Controllers
 
     public class ValuesController : ControllerBase
     {
-        
 
+        Program program = new Program();
 
         private readonly ILogger<ValuesController> _logger;
         public ValuesController(ILogger<ValuesController> logger)
@@ -22,8 +22,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpGet]
         public List<Values> Get()
         {
-            Program program = new Program();
-            return program.Main();
+            return program.GetList();
             
         }
 
@@ -36,8 +35,9 @@ namespace Phone_Book_Dotnet_Angular.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Values value)
         {
+            program.AddPhone(value);
         }
 
         // PUT api/<ValuesController>/5
