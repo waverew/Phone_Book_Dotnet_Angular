@@ -17,6 +17,9 @@ namespace Phone_Book_Dotnet_Angular
         public string phonebook = "./Controllers/Phonebook.json";
         public List<Values> state;
         //using FileStream jsond = File.Open(this.phonebook);
+        
+
+        // TODO: fix FS RW error
         public Program()
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
