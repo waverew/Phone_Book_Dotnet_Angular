@@ -1,11 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  
 })
+  
 export class HomeComponent implements OnInit {
   public phones: Values[] = [];
   public img: string =  "https://cdn.onlinewebfonts.com/svg/img_165402.png"
@@ -21,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.http.post<void>(this.baseUrl + "values", {
       Name: "a",
       Surname: "b",
-Phone: "+1"    }).subscribe()
+      Phone: "+1"    }).subscribe()
   }
 }
 interface Values {

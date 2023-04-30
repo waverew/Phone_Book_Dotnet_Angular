@@ -1,1 +1,24 @@
-<p>add-phone works!</p>
+<div class="main">
+  <div class="main-cont">
+    <div class="logo">
+      <h1>Добавить контакт</h1>
+    </div>
+    <form #login="ngForm" method="post" (ngSubmit)="submit(login)" class="form-cont">
+      <label>Имя: </label>
+      <div class="name-inp inp">
+        <input type="text" name="Name" />
+      </div>
+      <label>Фамилия: </label>
+      <div class="surname-inp inp">
+        <input type="text" name="Surname" />
+      </div>
+
+      <label>Телефон: </label>
+      <div class="phone-inp inp">
+        <input type="tel" name="Phone" />
+      </div>
+        <input type="submit" value="Добавить"/>
+    </form>
+  </div>
+  
+</div>

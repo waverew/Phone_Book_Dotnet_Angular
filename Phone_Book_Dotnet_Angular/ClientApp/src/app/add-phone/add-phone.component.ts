@@ -11,5 +11,7 @@ export class AddPhoneComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public submit(login:any) {
+    console.log("bebra", login);
+  }
 }

@@ -1,0 +1,33 @@
+.main{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-cont {
+  color: white;
+  border-radius: 30px;
+  background: #af8383;
+  box-shadow: 20px 20px 60px #956f6f, -20px -20px 60px #c99797;
+}
+.form-cont{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 50vh;
+}
+.form-cont h1{
+    column-span:all;
+}
+.name-inp{
+    grid-column-start: 2; 
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.inp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

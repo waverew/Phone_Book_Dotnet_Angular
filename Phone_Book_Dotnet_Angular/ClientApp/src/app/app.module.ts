@@ -18,7 +18,7 @@ import { BookitemComponent } from './bookitem/bookitem.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    BookitemComponent
+    AddPhoneComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
