@@ -12,7 +12,7 @@
     color: white;
 }
 .logo h1{
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 .phones-cont{
     display: grid;
@@ -22,9 +22,9 @@
     margin: 1rem;
 }
 .main {
-  height: 70vh;
-  overflow-y: scroll;
+  height: 80vh;
   color: white;
+  overflow: hidden;
   border-radius: 30px;
   background: #af8383;
   box-shadow: 20px 20px 60px #956f6f, -20px -20px 60px #c99797;
@@ -33,12 +33,12 @@
     width: 5rem;
 
 }
-.main {
+.scroll-cont{
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
 
-  .main::-webkit-scrollbar {
+  .scroll-cont::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
 .phones-cont p{
@@ -66,4 +66,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.scroll-cont{
+    height: 65vh;
+    overflow-y: scroll;
 }

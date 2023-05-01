@@ -1,5 +1,4 @@
 <div class="home">
-  
   <div *ngIf="phones" class="phones">
     <div class="main">
       <div class="logo">
@@ -7,20 +6,21 @@
           <b>Phonebook</b>
         </h1>
       </div>
-      <div *ngFor="let phone of phones">
-        <div class="phones-cont">
-          <p>{{phone.surname}}</p>
-          <p>{{phone.name}}</p>
-          <div class="img-cont">
-            <p>Телефон:</p>
-          </div>
-          <div class="phone-cont">
-            <p>{{phone.phone}}</p>
+      <div class="scroll-cont">
+        <div *ngFor="let phone of phones">
+          <div class="phones-cont">
+            <p>{{phone.surname}}</p>
+            <p>{{phone.name}}</p>
+            <div class="img-cont">
+              <p>Телефон:</p>
+            </div>
+            <div class="phone-cont">
+              <p>{{phone.phone}}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <a href="/add-phone">Add</a>
-
   </div>
 </div>

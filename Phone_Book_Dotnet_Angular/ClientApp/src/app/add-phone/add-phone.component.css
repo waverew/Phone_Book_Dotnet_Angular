@@ -23,6 +23,8 @@
     grid-column-start: 2; 
 }
 .logo{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -30,4 +32,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.submit-cont{
+    column-span: all;
+    width: 100%;
+    
 }

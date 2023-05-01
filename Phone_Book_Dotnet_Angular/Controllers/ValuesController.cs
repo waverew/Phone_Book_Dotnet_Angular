@@ -37,6 +37,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpPost]
         public void Post([FromBody] Values value)
         {
+            Console.WriteLine("succ");
             program.AddPhone(value);
         }
 
