@@ -37,15 +37,18 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpPost]
         public void Post([FromBody] Values value)
         {
-            Console.WriteLine("succ");
+            Console.WriteLine("succ post request");
             program.AddPhone(value);
         }
 
         // PUT api/<ValuesController>/:surname
-        [HttpPut("{surname}")]
-        public void Put(string surname, [FromBody] Values value)
+        [HttpPut("{index}")]
+        public void Put(int index, [FromBody] Values value)
         {
-            Console.WriteLine($"{surname} {value} Put request succ");
+            Console.WriteLine($"{index} {value} Put request succ");
+            Console.WriteLine(value.Surname);
+            program.EditPhone(index, value);
+            
             // find value for editing in the state array by SURNAME
             // change name/phone/surname props using value input parameter
             // save json
@@ -56,6 +59,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            Console.WriteLine(id);
             program.RemovePhone(id);
 
         }

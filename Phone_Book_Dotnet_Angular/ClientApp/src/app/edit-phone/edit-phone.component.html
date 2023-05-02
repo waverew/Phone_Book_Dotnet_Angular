@@ -1,0 +1,34 @@
+<div class="main">
+  <div class="form-cont">
+    <div class="contact-cont">
+      <div class="name-surname-cont">
+        <h2>{{phone.name}}</h2>
+        <h2>{{phone.surname}}</h2>
+      </div>
+      <div class="phone-cont">
+        <h1>{{phone.phone}}</h1>
+      </div>
+
+    </div>
+    <form #login="ngForm" method="post" (ngSubmit)="submit()" class="form">
+      <div class="inp-cont">
+        <div class="label-cont">
+          <label>Имя: </label>
+        </div>
+        <input type="text" name="Name" [(ngModel)]="phone.name" />
+        <div class="label-cont">
+          <label>Фамилия: </label>
+        </div>
+        <input type="text" name="Surname" [(ngModel)]="phone.surname" />
+        <div class="label-cont">
+          <label>Номер: </label>
+        </div>
+        <input type="tel" name="Phone" [(ngModel)]="phone.phone" />
+      </div>
+      <div class="but-cont">
+        <button type="submit">Сохранить</button>
+      </div>
+    </form>
+    <button (click)="delPhone()">Удалить</button>
+  </div>
+</div>

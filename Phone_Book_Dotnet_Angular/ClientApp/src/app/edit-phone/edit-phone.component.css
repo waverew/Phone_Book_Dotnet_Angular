@@ -1,0 +1,61 @@
+.main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.form-cont {
+  border-radius: 30px;
+  background: #241ba1;
+  border: 1px solid;
+  height: 30rem;
+  width: 40rem;
+}
+.form {
+  border-top: 1px solid;
+  height: 15rem;
+}
+.inp-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.contact-cont{
+    height: 15rem;
+}
+.label-cont{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+}
+.label-cont label{
+    margin-right: 1rem;
+}
+.but-cont{
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+  .but-cont button {
+    background: #1e1688;
+    color: white;
+  }
+.name-surname-cont{
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name-surname-cont h2{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.phone-cont {
+    padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

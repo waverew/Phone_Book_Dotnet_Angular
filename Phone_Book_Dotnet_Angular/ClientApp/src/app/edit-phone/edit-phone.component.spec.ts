@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeletePhoneComponent } from './delete-phone.component';
+import { EditPhoneComponent } from './edit-phone.component';
 
-describe('DeletePhoneComponent', () => {
-  let component: DeletePhoneComponent;
-  let fixture: ComponentFixture<DeletePhoneComponent>;
+describe('EditPhoneComponent', () => {
+  let component: EditPhoneComponent;
+  let fixture: ComponentFixture<EditPhoneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeletePhoneComponent ]
+      declarations: [ EditPhoneComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeletePhoneComponent);
+    fixture = TestBed.createComponent(EditPhoneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

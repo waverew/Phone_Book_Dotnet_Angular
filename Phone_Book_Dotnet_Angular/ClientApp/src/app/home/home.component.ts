@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Router } from "@angular/router";
-import { AddPhoneComponent } from '../add-phone/add-phone.component';
 import { Values } from '../app.types';
+import { EditPhoneComponent } from '../edit-phone/edit-phone.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -28,10 +28,10 @@ export class HomeComponent implements OnInit {
   public addContact() {
     this.router.navigate(['/add-phone']);
   }
-  openDialog(phone: Values): void {
-    const dialogRef = this.dialog.open<string>(AddPhoneComponent, {
+  openDialog(contact: Values, index: number): void {
+    const dialogRef = this.dialog.open<string>(EditPhoneComponent, {
       width: '400px',
-      data: phone,
+      data: { contact, index}
     });
 
     dialogRef.closed.subscribe(result => {

@@ -3,15 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AddPhoneComponent } from './add-phone/add-phone.component';
-import { BookitemComponent } from './bookitem/bookitem.component';
 import { DialogModule } from '@angular/cdk/dialog';
+import { EditPhoneComponent } from './edit-phone/edit-phone.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +18,8 @@ import { DialogModule } from '@angular/cdk/dialog';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    AddPhoneComponent
+    AddPhoneComponent,
+    EditPhoneComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,7 +30,8 @@ import { DialogModule } from '@angular/cdk/dialog';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'add-phone', component: AddPhoneComponent }
+      { path: 'add-phone', component: AddPhoneComponent },
+      { path: 'edit', component: EditPhoneComponent }
     ])
   ],
   providers: [],

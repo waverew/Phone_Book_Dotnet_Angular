@@ -23,6 +23,7 @@
 }
 .main {
   height: 85vh;
+  width: 30rem;
   color: white;
   overflow: hidden;
   border-radius: 30px;
@@ -74,7 +75,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
+  .phones p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .scroll-cont{
     height: 70vh;
     overflow-y: scroll;

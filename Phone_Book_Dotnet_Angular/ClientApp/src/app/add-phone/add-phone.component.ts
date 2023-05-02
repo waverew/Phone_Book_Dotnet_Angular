@@ -15,7 +15,6 @@ export class AddPhoneComponent implements OnInit {
     phone: '',
   };
 
-
   constructor(private http: HttpClient, private router: Router, @Inject('BASE_URL') private baseUrl: string, @Optional() @Inject(DIALOG_DATA) public data: Values) { }
 
   ngOnInit(): void {
@@ -34,15 +33,6 @@ export class AddPhoneComponent implements OnInit {
       Surname: login.surname,
       Phone: login.phone
     }).subscribe();
-
-    /**
-     * 
-    this.http.put<void>(this.baseUrl + 'values'+'/w', {
-      Name: login.Name,
-      Surname: login.Surname,
-      Phone: login.Phone
-    }).subscribe();
-    */
     this.router.navigate(['/']);
   }
 }

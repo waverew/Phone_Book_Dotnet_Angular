@@ -8,27 +8,12 @@ using System.Text.Unicode;
 namespace Phone_Book_Dotnet_Angular
 {
 
-    public class ValueToEdit
-    {
-
-        public string Name { get; set; }
-        public string Phone { get; set; }
-    }
         public class Values
     {
 
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; } 
-        public string ChangeEncoding ()
-        {   
-
-            string _surname = this.Surname;
-            string _name = this.Name;
-            string _phone = this.Phone;
-            return "";
-            // change engoding of strings to 
-        }
     }
     public class Program
     {
@@ -60,7 +45,6 @@ namespace Phone_Book_Dotnet_Angular
         public void RemovePhone(int id)
         {
             using FileStream jsond = File.OpenWrite(this.phonebook);
-            // this.state.Remove();
             Console.WriteLine("RemovePhone() hit");
             jsond.Close();
             this.state.RemoveAt(id);
@@ -71,12 +55,19 @@ namespace Phone_Book_Dotnet_Angular
             };
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
         }
-        public void EditPhone(string surname, Values phone)
+        public void EditPhone(int id, Values contact)
         {
             using FileStream jsond = File.OpenWrite(this.phonebook);
-            // this.state.Remove();
-            Console.WriteLine("RemovePhone() hit");
             jsond.Close();
+            this.state[id] = contact;
+            Console.WriteLine(id);
+            Console.WriteLine("id v jsone");
+            var options1 = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+                WriteIndented = true
+            };
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
 
         }
 

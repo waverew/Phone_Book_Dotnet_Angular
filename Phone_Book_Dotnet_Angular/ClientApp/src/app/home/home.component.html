@@ -9,8 +9,12 @@
       <div class="scroll-cont">
         <div *ngFor="let phone of phones">
           <div class="phones-cont">
-            <p>{{phone.surname}}</p>
-            <p>{{phone.name}}</p>
+            <div class="phones">
+              <p>{{phone.surname}}</p>
+            </div>
+            <div class="phones">
+              <p>{{phone.name}}</p>
+            </div>
             <div class="img-cont">
               <p>Телефон:</p>
             </div>
@@ -19,8 +23,7 @@
             </div>
           </div>
           <div class="but-cont">
-            <button (click)="delPhone(phones.indexOf(phone))">Удалить</button>
-            <button (click)="openDialog(phone)">Редактировать</button>
+            <button (click)="openDialog(phone, phones.indexOf(phone))">Редактировать</button>
           </div>
         </div>
       </div>
