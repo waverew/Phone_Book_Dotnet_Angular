@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 export class HomeComponent implements OnInit {
   public phones: Values[] = [];
   public img: string =  "https://cdn.onlinewebfonts.com/svg/img_165402.png"
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
+  constructor(private http: HttpClient, private router: Router, @Inject('BASE_URL') private baseUrl: string) {
     http.get<Values[]>(baseUrl + 'values').subscribe(result => {
       this.phones = result;
     }, error => console.error(error));
@@ -20,11 +20,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public addPhone() {
-    this.http.post<void>(this.baseUrl + "values", {
-      Name: "a",
-      Surname: "b",
-      Phone: "+1"    }).subscribe()
+  public delPhone(id: number) {
+
+    this.http.delete<void>(this.baseUrl + `values/${id}`).subscribe();
+    window.location.reload();
+  }
+  public addContact() {
+    this.router.navigate(['/add-phone']);
   }
 }
 interface Values {

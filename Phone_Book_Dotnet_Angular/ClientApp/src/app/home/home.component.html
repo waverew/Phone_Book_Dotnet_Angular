@@ -18,9 +18,15 @@
               <p>{{phone.phone}}</p>
             </div>
           </div>
+          <div class="but-cont">
+            <button (click)="delPhone(phones.indexOf(phone))">Удалить</button>
+            <button>Редактировать</button>
+          </div>
         </div>
       </div>
+      <div class="but-cont" style="margin-top:3px">
+        <button (click)="addContact()">Добавить контакт</button>
+      </div>
     </div>
-    <a href="/add-phone">Add</a>
   </div>
 </div>

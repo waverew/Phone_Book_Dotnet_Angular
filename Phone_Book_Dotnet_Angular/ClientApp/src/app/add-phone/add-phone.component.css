@@ -6,6 +6,7 @@
 }
 .main-cont {
   color: white;
+  width: 30vw;
   border-radius: 30px;
   background: #af8383;
   box-shadow: 20px 20px 60px #956f6f, -20px -20px 60px #c99797;
@@ -31,10 +32,27 @@
 .inp{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 .submit-cont{
     column-span: all;
     width: 100%;
     
 }
+.labels{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.but-cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+  .but-cont input {
+    border-radius: 5px;
+    background: #af8383;
+    color: white;
+  }

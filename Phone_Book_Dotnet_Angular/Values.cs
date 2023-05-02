@@ -39,13 +39,6 @@ namespace Phone_Book_Dotnet_Angular
             Console.WriteLine("Program constructor");
             this.state = System.Text.Json.JsonSerializer.Deserialize<List<Values>>(jsond);
             jsond.Close();
-            for (int i = 0; i < this.state.Count; i++)
-            {
-                Console.WriteLine(this.state[i].Surname);
-                Console.WriteLine(this.state[i].Name);
-                Console.WriteLine(this.state[i].Phone);
-            }
-            
         }
         public void AddPhone(Values phone)
         {
@@ -59,10 +52,21 @@ namespace Phone_Book_Dotnet_Angular
             Console.WriteLine(this.state.Count);
             Console.WriteLine("Add(phone).Count");
             jsond.Close();
-        // jsond.Write()
-       // Console.WriteLine(JsonSerializer.Serialize(this.state));
-           File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
-
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
+        }
+        public void RemovePhone(int id)
+        {
+            using FileStream jsond = File.OpenWrite(this.phonebook);
+            // this.state.Remove();
+            Console.WriteLine("RemovePhone() hit");
+            jsond.Close();
+            this.state.RemoveAt(id);
+            var options1 = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+                WriteIndented = true
+            };
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
         }
 
         public List<Values> GetList()

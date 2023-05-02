@@ -23,7 +23,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         public List<Values> Get()
         {
             return program.GetList();
-            
+
         }
 
         // GET api/<ValuesController>/5
@@ -51,6 +51,8 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            program.RemovePhone(id);
+
         }
     }
 }
