@@ -6,7 +6,7 @@
 }
 .main-cont {
   color: white;
-  width: 30vw;
+  width: 30rem;
   border-radius: 30px;
   background: #af8383;
   box-shadow: 20px 20px 60px #956f6f, -20px -20px 60px #c99797;
@@ -45,6 +45,7 @@
     align-items: center;
 }
 .but-cont {
+    margin-bottom:1rem;
   width: 100%;
   display: flex;
   justify-content: space-around;

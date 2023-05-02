@@ -3,22 +3,24 @@
     <div class="logo">
       <h1>Добавить контакт</h1>
     </div>
-    <form #login="ngForm" method="post" (ngSubmit)="submit(login.value)" class="form-cont">
-      <label class="labels">Имя: </label>
-      <div class="name-inp inp">
-        <input type="text" name="Name" ngModel/>
-      </div>
-      <label class="labels">Фамилия: </label>
-      <div class="surname-inp inp">
-        <input type="text" name="Surname" ngModel/>
-      </div>
+    <form #login="ngForm" method="post" (ngSubmit)="submit()">
+      <div class="form-cont">
+        <label class="labels">Имя: </label>
+        <div class="name-inp inp">
+          <input type="text" name="Name" [(ngModel)]="phone.name" />
+        </div>
+        <label class="labels">Фамилия: </label>
+        <div class="surname-inp inp">
+          <input type="text" name="Surname" [(ngModel)]="phone.surname" />
+        </div>
 
-      <label class="labels">Телефон: </label>
-      <div class="phone-inp inp">
-        <input type="tel" name="Phone" ngModel/>
+        <label class="labels">Телефон: </label>
+        <div class="phone-inp inp">
+          <input type="tel" name="Phone" [(ngModel)]="phone.phone" />
+        </div>
       </div>
       <div class="but-cont">
-        <input type="submit" value="Добавить" ngModel/>
+        <input type="submit" value="Добавить"/>
       </div>
     </form>
   </div>

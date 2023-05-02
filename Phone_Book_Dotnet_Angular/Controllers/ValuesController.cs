@@ -41,10 +41,15 @@ namespace Phone_Book_Dotnet_Angular.Controllers
             program.AddPhone(value);
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT api/<ValuesController>/:surname
+        [HttpPut("{surname}")]
+        public void Put(string surname, [FromBody] Values value)
         {
+            Console.WriteLine($"{surname} {value} Put request succ");
+            // find value for editing in the state array by SURNAME
+            // change name/phone/surname props using value input parameter
+            // save json
+
         }
 
         // DELETE api/<ValuesController>/5

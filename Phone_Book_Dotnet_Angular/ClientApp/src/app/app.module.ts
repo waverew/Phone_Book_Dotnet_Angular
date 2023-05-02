@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AddPhoneComponent } from './add-phone/add-phone.component';
 import { BookitemComponent } from './bookitem/bookitem.component';
+import { DialogModule } from '@angular/cdk/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { BookitemComponent } from './bookitem/bookitem.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    DialogModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

@@ -7,7 +7,14 @@ using System.Text.Unicode;
 
 namespace Phone_Book_Dotnet_Angular
 {
-    public class Values
+
+    public class ValueToEdit
+    {
+
+        public string Name { get; set; }
+        public string Phone { get; set; }
+    }
+        public class Values
     {
 
         public string Surname { get; set; }
@@ -27,10 +34,6 @@ namespace Phone_Book_Dotnet_Angular
     {
         public string phonebook = "./Controllers/Phonebook.json";
         public List<Values> state;
-        //using FileStream jsond = File.Open(this.phonebook);
-        
-
-        // TODO: fix FS RW error
         public Program()
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
@@ -68,6 +71,14 @@ namespace Phone_Book_Dotnet_Angular
             };
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
         }
+        public void EditPhone(string surname, Values phone)
+        {
+            using FileStream jsond = File.OpenWrite(this.phonebook);
+            // this.state.Remove();
+            Console.WriteLine("RemovePhone() hit");
+            jsond.Close();
+
+        }
 
         public List<Values> GetList()
         {
@@ -75,18 +86,5 @@ namespace Phone_Book_Dotnet_Angular
             Console.WriteLine("Get(phone).Count");
             return this.state;
         }
-       // public List<Values> Main()
-        //{
-            /*using FileStream jsond = File.OpenRead(this.phonebook);
-            var values = JsonSerializer.Deserialize<List<Values>>(jsond);
-            for (int i = 0; i < values.Count; i++)
-            {
-                Console.WriteLine(values[i].Surname);
-                Console.WriteLine(values[i].Name);
-                Console.WriteLine(values[i].Phone);
-            }
-            return values;
-        }*/
-       
     }
 }
