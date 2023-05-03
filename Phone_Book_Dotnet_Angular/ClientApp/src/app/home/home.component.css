@@ -20,9 +20,14 @@
     grid-template-rows: 1fr 1fr;
     border: 1px solid;
     margin: 1rem;
+    cursor:pointer;
 }
+  .phones-cont:hover {
+    transform: scale(1.05);
+    box-shadow: inset 4px 4px 9px #c0a5a5, inset -4px -4px 9px #c0a5a5;
+  }
 .main {
-  height: 85vh;
+  height: 80%;
   width: 30rem;
   color: white;
   overflow: hidden;
@@ -54,10 +59,6 @@
     width: 10rem;
     margin: 1rem;
 }
-.phones-cont img{
-    width: 2.5rem;
-    height: 2.5rem;
-}
 .img-cont{
     display: flex;
     align-items: center;
@@ -85,4 +86,22 @@
 .scroll-cont{
     height: 70vh;
     overflow-y: scroll;
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    width: 100%;
+  }
+
+  .phone-cont {
+    width: min-content;
+  }
+
+  .phones {
+    width: min-content;
+  }
+
+  .phones-cont p {
+    width: min-content;
+    margin: 1rem;
+  }
 }

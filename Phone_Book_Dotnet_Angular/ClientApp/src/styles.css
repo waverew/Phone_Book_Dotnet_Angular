@@ -11,7 +11,8 @@ code {
 }
 body {
   background-color: #af8383;
-  overflow:hidden;
+  overflow: hidden;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .btn-primary {

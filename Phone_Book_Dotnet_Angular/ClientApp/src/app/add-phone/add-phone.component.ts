@@ -23,7 +23,7 @@ export class AddPhoneComponent implements OnInit {
 
       this.phone = this.data;
 
-}
+    }
   }
   public submit() {
     const login = this.phone;

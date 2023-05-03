@@ -14,10 +14,7 @@ import { EditPhoneComponent } from './edit-phone/edit-phone.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     AddPhoneComponent,
     EditPhoneComponent,
   ],
@@ -28,10 +25,7 @@ import { EditPhoneComponent } from './edit-phone/edit-phone.component';
     DialogModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'add-phone', component: AddPhoneComponent },
-      { path: 'edit', component: EditPhoneComponent }
     ])
   ],
   providers: [],

@@ -34,6 +34,9 @@
     align-items: center;
     justify-content: left;
 }
+.inp input{
+    margin-right: 2rem;
+}
 .submit-cont{
     column-span: all;
     width: 100%;
@@ -51,9 +54,8 @@
   justify-content: space-around;
   align-items: center;
 }
-
-  .but-cont input {
+.but-cont input {
     border-radius: 5px;
     background: #af8383;
     color: white;
-  }
+}
