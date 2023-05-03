@@ -48,7 +48,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
             Console.WriteLine($"{index} {value} Put request succ");
             Console.WriteLine(value.Surname);
             program.EditPhone(index, value);
-            
+
             // find value for editing in the state array by SURNAME
             // change name/phone/surname props using value input parameter
             // save json

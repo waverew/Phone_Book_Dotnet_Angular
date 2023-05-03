@@ -1,31 +1,31 @@
-.home{
-    height:100vh;
-    overflow:hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
-.logo h1{
-    margin-top: 2rem;
+.logo h1 {
+  margin-top: 2rem;
 }
-.phones-cont{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    border: 1px solid;
-    margin: 1rem;
-    cursor:pointer;
+.phones-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid;
+  margin: 1rem;
+  cursor: pointer;
 }
-  .phones-cont:hover {
-    transform: scale(1.05);
-    box-shadow: inset 4px 4px 9px #c0a5a5, inset -4px -4px 9px #c0a5a5;
-  }
+.phones-cont:hover {
+  transform: scale(1.05);
+  box-shadow: inset 4px 4px 9px #c0a5a5, inset -4px -4px 9px #c0a5a5;
+}
 .main {
   height: 80%;
   width: 30rem;
@@ -40,52 +40,50 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
-  .but-cont button {
-    border-radius: 5px;
-    background: #af8383;
-    color: white;
-  }
-.scroll-cont{
+.but-cont button {
+  border-radius: 5px;
+  background: #af8383;
+  color: white;
+}
+.scroll-cont {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
 
-  .scroll-cont::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-.phones-cont p{
-    width: 10rem;
-    margin: 1rem;
+.scroll-cont::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
-.img-cont{
-    display: flex;
-    align-items: center;
-    justify-content:right;
-    border-top: 1px solid;
+.phones-cont p {
+  width: 10rem;
+  margin: 1rem;
 }
-.phone-cont{
-    border-top: 1px solid;
-    font-size: larger;
-    grid-column: 2;
-    column-span: all;
-
+.img-cont {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  border-top: 1px solid;
 }
-.phones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.phone-cont {
+  border-top: 1px solid;
+  font-size: larger;
+  grid-column: 2;
+  column-span: all;
 }
-  .phones p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-.scroll-cont{
-    height: 70vh;
-    overflow-y: scroll;
+.phones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.phones p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-cont {
+  height: 70vh;
+  overflow-y: scroll;
 }
 @media only screen and (max-width: 600px) {
   .main {

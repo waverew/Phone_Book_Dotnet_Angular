@@ -2,13 +2,12 @@
   <div class="form-cont">
     <div class="contact-cont">
       <div class="name-surname-cont">
-        <h2>{{phone.name}}</h2>
-        <h2>{{phone.surname}}</h2>
+        <h2>{{ phone.name }}</h2>
+        <h2>{{ phone.surname }}</h2>
       </div>
       <div class="phone-cont">
-        <h1>{{phone.phone}}</h1>
+        <h1>{{ phone.phone }}</h1>
       </div>
-
     </div>
     <form #login="ngForm" method="post" (ngSubmit)="submit()" class="form">
       <div class="inp-cont">
@@ -25,12 +24,12 @@
         </div>
         <input type="tel" name="Phone" [(ngModel)]="phone.phone" />
       </div>
-      <div class="but-cont" style="padding-top:3rem">
+      <div class="but-cont" style="padding-top: 3rem">
         <button type="submit">Сохранить</button>
       </div>
     </form>
     <div class="but-cont">
       <button (click)="delPhone()">Удалить</button>
     </div>
-    </div>
   </div>
+</div>

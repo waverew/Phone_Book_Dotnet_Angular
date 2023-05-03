@@ -8,12 +8,12 @@ using System.Text.Unicode;
 namespace Phone_Book_Dotnet_Angular
 {
 
-        public class Values
+    public class Values
     {
 
         public string Surname { get; set; }
         public string Name { get; set; }
-        public string Phone { get; set; } 
+        public string Phone { get; set; }
     }
     public class Program
     {
@@ -30,8 +30,8 @@ namespace Phone_Book_Dotnet_Angular
         }
         public void AddPhone(Values phone)
         {
-        using FileStream jsond = File.OpenWrite(this.phonebook);
-        this.state.Add(phone);
+            using FileStream jsond = File.OpenWrite(this.phonebook);
+            this.state.Add(phone);
             var options1 = new JsonSerializerOptions
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
