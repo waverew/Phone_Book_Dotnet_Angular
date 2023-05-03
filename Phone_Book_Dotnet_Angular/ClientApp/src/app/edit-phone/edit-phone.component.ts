@@ -15,6 +15,7 @@ export class EditPhoneComponent implements OnInit {
     surname: '',
     phone: '',
   };
+  phones: Values[] = [];
 
   constructor(
     private http: HttpClient,
@@ -23,7 +24,14 @@ export class EditPhoneComponent implements OnInit {
     @Optional()
     @Inject(DIALOG_DATA)
     public data: { contact: Values; index: number }
-  ) {}
+  ) {
+    this.http.get<Values[]>(this.baseUrl + 'values').subscribe(
+      (result) => {
+        this.phones = result;
+      },
+      (error) => console.error(error)
+    );
+  }
 
   ngOnInit(): void {
     console.log(this.data);
@@ -35,15 +43,26 @@ export class EditPhoneComponent implements OnInit {
   public submit() {
     const id = this.data.index;
     const login = this.phone;
-    console.log('bebra', login);
-    this.http
-      .put<void>(this.baseUrl + `values/${id}`, {
-        Name: login.name,
-        Surname: login.surname,
-        Phone: login.phone,
-      })
-      .subscribe();
-    window.location.reload();
+    if (this.checkSurname() != false) {
+      this.http
+        .put<void>(this.baseUrl + `values/${id}`, {
+          Name: login.name,
+          Surname: login.surname,
+          Phone: login.phone,
+        })
+        .subscribe();
+      window.location.reload();
+    }
+  }
+  public checkSurname() {
+    const login = this.phone;
+    for (let contact of this.phones) {
+      if (contact.surname == login.surname) {
+        window.alert('Извините, такая фамилия уже существует');
+        return false;
+      }
+    }
+    return true;
   }
   public delPhone() {
     const id = this.data.index;

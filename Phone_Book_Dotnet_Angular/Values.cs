@@ -74,7 +74,8 @@ namespace Phone_Book_Dotnet_Angular
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
 
         }
-        private List<Values> SortContacts(List<Values> list) {
+        private List<Values> SortContacts(List<Values> list)
+        {
 
             return list.OrderBy(p => p.Surname, StringComparer.Create(new System.Globalization.CultureInfo("ru-RU"), false)).ToList();
         }

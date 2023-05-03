@@ -7,15 +7,31 @@
       <div class="form-cont">
         <label class="labels">Имя: </label>
         <div class="name-inp inp">
-          <input type="text" name="Name" [(ngModel)]="phone.name" maxlength="50" pattern="[a-zA-Z ]*" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+          <input
+            type="text"
+            name="Name"
+            [(ngModel)]="phone.name"
+            maxlength="50"
+          />
+          <div *ngIf="error">dddddd</div>
         </div>
         <label class="labels">Фамилия: </label>
         <div class="surname-inp inp">
-          <input type="text" name="Surname" [(ngModel)]="phone.surname" maxlength="50" required pattern="[a-zA-Z ]*"/>
+          <input
+            type="text"
+            name="Surname"
+            [(ngModel)]="phone.surname"
+            maxlength="50"
+          />
         </div>
         <label class="labels">Телефон: </label>
         <div class="phone-inp inp">
-          <input type="tel" name="Phone" [(ngModel)]="phone.phone" maxlength="50"/>
+          <input
+            type="tel"
+            name="Phone"
+            [(ngModel)]="phone.phone"
+            maxlength="50"
+          />
         </div>
       </div>
       <div class="but-cont">
