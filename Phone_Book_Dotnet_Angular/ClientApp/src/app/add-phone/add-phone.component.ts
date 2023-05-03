@@ -40,4 +40,19 @@ export class AddPhoneComponent implements OnInit {
       .subscribe();
     this.router.navigate(['/']);
   }
+  alphaNumberOnly(e: any) {  // Accept only alpha numerics, not special characters 
+    var regex = new RegExp("^[a-zA-Z0-9 ]+$");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+      return true;
+    }
+
+    e.preventDefault();
+    return false;
+  }
+
+  onPaste(e: any) {
+    e.preventDefault();
+    return false;
+  }
 }

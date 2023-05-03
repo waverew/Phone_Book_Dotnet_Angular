@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
@@ -40,7 +41,8 @@ namespace Phone_Book_Dotnet_Angular
             Console.WriteLine(this.state.Count);
             Console.WriteLine("Add(phone).Count");
             jsond.Close();
-            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
+            var sortedJson = SortContacts(this.state);
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
         }
         public void RemovePhone(int id)
         {
@@ -53,7 +55,8 @@ namespace Phone_Book_Dotnet_Angular
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
-            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
+            var sortedJson = SortContacts(this.state);
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
         }
         public void EditPhone(int id, Values contact)
         {
@@ -67,8 +70,13 @@ namespace Phone_Book_Dotnet_Angular
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
-            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(this.state, options1));
+            var sortedJson = SortContacts(this.state);
+            File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
 
+        }
+        private List<Values> SortContacts(List<Values> list) {
+
+            return list.OrderBy(p => p.Surname, StringComparer.Create(new System.Globalization.CultureInfo("ru-RU"), false)).ToList();
         }
 
         public List<Values> GetList()
