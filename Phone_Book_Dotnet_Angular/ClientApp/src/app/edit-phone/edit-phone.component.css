@@ -14,6 +14,7 @@
 }
 .form {
   border-top: 1px solid;
+  border-bottom: 1px solid;
   height: 15rem;
   padding-top: 1rem;
 }
@@ -63,4 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.del{
+    padding-top: 25px;
 }
