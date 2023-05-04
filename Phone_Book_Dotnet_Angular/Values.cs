@@ -23,9 +23,6 @@ namespace Phone_Book_Dotnet_Angular
         public Program()
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
-            //var values = JsonSerializer.Deserialize<List<Values>>(jsond);
-
-            Console.WriteLine("Program constructor");
             this.state = System.Text.Json.JsonSerializer.Deserialize<List<Values>>(jsond);
             jsond.Close();
         }
@@ -38,8 +35,6 @@ namespace Phone_Book_Dotnet_Angular
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
-            Console.WriteLine(this.state.Count);
-            Console.WriteLine("Add(phone).Count");
             jsond.Close();
             var sortedJson = SortContacts(this.state);
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
@@ -47,7 +42,6 @@ namespace Phone_Book_Dotnet_Angular
         public void RemovePhone(int id)
         {
             using FileStream jsond = File.OpenWrite(this.phonebook);
-            Console.WriteLine("RemovePhone() hit");
             jsond.Close();
             this.state.RemoveAt(id);
             var options1 = new JsonSerializerOptions
@@ -63,8 +57,6 @@ namespace Phone_Book_Dotnet_Angular
             using FileStream jsond = File.OpenWrite(this.phonebook);
             jsond.Close();
             this.state[id] = contact;
-            Console.WriteLine(id);
-            Console.WriteLine("id v jsone");
             var options1 = new JsonSerializerOptions
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
@@ -82,8 +74,6 @@ namespace Phone_Book_Dotnet_Angular
 
         public List<Values> GetList()
         {
-            Console.WriteLine(this.state.Count);
-            Console.WriteLine("Get(phone).Count");
             return this.state;
         }
     }

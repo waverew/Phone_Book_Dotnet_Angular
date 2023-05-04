@@ -34,10 +34,8 @@ export class EditPhoneComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
     if (this.data) {
       this.phone = this.data.contact;
-      console.log(this.data.index);
     }
   }
   public submit() {

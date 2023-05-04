@@ -18,37 +18,32 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         {
             _logger = logger;
         }
-        // GET: api/<ValuesController>
+        // GET: /<ValuesController>
         [HttpGet]
         public List<Values> Get()
         {
             return program.GetList();
-
         }
 
-        // POST api/<ValuesController>
+        // POST /<ValuesController>
         [HttpPost]
         public void Post([FromBody] Values value)
         {
-            Console.WriteLine("succ post request");
             program.AddPhone(value);
         }
 
-        // PUT api/<ValuesController>/:surname
+        // PUT /<ValuesController>/?index
         [HttpPut("{index}")]
         public void Put(int index, [FromBody] Values value)
         {
             program.EditPhone(index, value);
-
         }
 
-        // DELETE api/<ValuesController>/5
+        // DELETE /<ValuesController>/?index
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            Console.WriteLine(id);
             program.RemovePhone(id);
-
         }
     }
 }
