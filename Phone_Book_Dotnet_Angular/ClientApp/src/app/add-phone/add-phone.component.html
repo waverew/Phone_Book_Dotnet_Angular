@@ -12,8 +12,8 @@
             name="Name"
             [(ngModel)]="phone.name"
             maxlength="50"
+            (keypress)="validateInputText($event)"
           />
-          <div *ngIf="error">dddddd</div>
         </div>
         <label class="labels">Фамилия: </label>
         <div class="surname-inp inp">
@@ -22,6 +22,8 @@
             name="Surname"
             [(ngModel)]="phone.surname"
             maxlength="50"
+            (keypress)="validateInputText($event)"
+            (input)="checkIfSurnameEmpty()"
           />
         </div>
         <label class="labels">Телефон: </label>
@@ -31,11 +33,12 @@
             name="Phone"
             [(ngModel)]="phone.phone"
             maxlength="50"
+            (keypress)="validateInputNumber($event)"
           />
         </div>
       </div>
       <div class="but-cont">
-        <input type="submit" value="Добавить" />
+        <input type="submit" value="Добавить" [disabled]="isButtonDisabled" />
       </div>
     </form>
   </div>

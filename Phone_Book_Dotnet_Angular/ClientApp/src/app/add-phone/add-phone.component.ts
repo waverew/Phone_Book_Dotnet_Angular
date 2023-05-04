@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { Values } from '../app.types';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-add-phone',
   templateUrl: './add-phone.component.html',
@@ -15,7 +16,7 @@ export class AddPhoneComponent implements OnInit {
     phone: '',
   };
   phones: Values[] = [];
-  error: boolean = false;
+  isButtonDisabled = true;
 
   constructor(
     private http: HttpClient,
@@ -45,8 +46,8 @@ export class AddPhoneComponent implements OnInit {
   }
   public submit() {
     const login = this.phone;
-    const a = this.checkSurname();
-    if (a != false) {
+    const check = this.checkSurname();
+    if (check != false) {
       this.http
         .post<void>(this.baseUrl + 'values', {
           Name: login.name,
@@ -66,5 +67,26 @@ export class AddPhoneComponent implements OnInit {
       }
     }
     return true;
+  }
+  public validateInputNumber(event: any) {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 43) {
+      return false;
+    }
+    return true;
+  }
+  public validateInputText(event: any) {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (!/^[а-яёА-ЯЁ]+$/.test(String.fromCharCode(charCode))) {
+      return false;
+    }
+    return true;
+  }
+  public checkIfSurnameEmpty() {
+    if (this.phone.surname != '') {
+      this.isButtonDisabled = false;
+    } else {
+      this.isButtonDisabled = true;
+    }
   }
 }
