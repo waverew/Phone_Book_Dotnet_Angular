@@ -25,7 +25,7 @@ cd Phone_Book_Dotnet_Angular
 ```bash
 docker pull kaban4/phonebookdotnet:v2.0
 ```
-Запустите Docker-контейнер с помощью команды:
+Запустите Docker-контейнер и загрузите Phonebook.json с помощью команды:
 
 ```bash
 docker run -d -p 5000:80 -v /ваш/путь/к/Phonebook.json:/app/Phonebook.json --name bookcontainer kaban4/phonebookdotnet:v2.0
