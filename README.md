@@ -20,16 +20,15 @@ git clone https://github.com/waverew/Phone_Book_Dotnet_Angular.git
 ```bash
 cd Phone_Book_Dotnet_Angular
 ```
-Создайте Docker-образ проекта с помощью команды:
+Клонируйте Docker-образ проекта с помощью команды:
 
 ```bash
-docker build -t phonebookdotnet .
+docker pull kaban4/phonebookdotnet:v2.0
 ```
 Запустите Docker-контейнер с помощью команды:
 
 ```bash
-docker run -d -p 5000:80 -v /path/to/your/Phonebook.json:/app/Phonebook.json --name bookcontainer phonebookdotnet
+docker run -d -p 5000:80 -v /ваш/путь/к/Phonebook.json:/app/Phonebook.json --name bookcontainer kaban4/phonebookdotnet:v2.0
 ```
-
 ## Запуск проекта
 Откройте веб-браузер и перейдите по адресу http://localhost:5000 для доступа к приложению.
