@@ -18,6 +18,8 @@ docker pull kaban4/phonebookdotnet:v2.0
 ```
 Запустите Docker-контейнер и загрузите Phonebook.json с помощью команды:
 
+Тестовый Phonebook.json Вы можете найти по ссылке https://github.com/waverew/Phone_Book_Dotnet_Angular/blob/master/Phone_Book_Dotnet_Angular/Phonebook.json
+
 ```bash
 docker run -d -p 5000:80 -v /ваш/путь/к/Phonebook.json:/app/Phonebook.json --name bookcontainer kaban4/phonebookdotnet:v2.0
 ```
