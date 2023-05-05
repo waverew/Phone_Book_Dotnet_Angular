@@ -18,7 +18,7 @@ namespace Phone_Book_Dotnet_Angular
     }
     public class PhoneBookDB
     {
-        public string phonebook = "./Controllers/Phonebook.json";
+        public string phonebook = "./Phonebook.json";
         public List<Contact> state;
         public PhoneBookDB()
         {
