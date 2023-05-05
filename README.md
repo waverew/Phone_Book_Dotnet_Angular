@@ -11,15 +11,6 @@ Docker
 
 ## Запуск проекта
 
-Клонируйте репозиторий проекта на вашем компьютере с помощью команды:
-
-```bash
-git clone https://github.com/waverew/Phone_Book_Dotnet_Angular.git
-```
-Перейдите в каталог проекта с помощью команды:
-```bash
-cd Phone_Book_Dotnet_Angular
-```
 Клонируйте Docker-образ проекта с помощью команды:
 
 ```bash
