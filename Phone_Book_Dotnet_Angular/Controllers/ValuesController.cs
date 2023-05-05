@@ -11,7 +11,7 @@ namespace Phone_Book_Dotnet_Angular.Controllers
     public class ValuesController : ControllerBase
     {
 
-        Program program = new Program();
+        PhoneBookDB program = new PhoneBookDB();
 
         private readonly ILogger<ValuesController> _logger;
         public ValuesController(ILogger<ValuesController> logger)
@@ -20,21 +20,21 @@ namespace Phone_Book_Dotnet_Angular.Controllers
         }
         // GET: /<ValuesController>
         [HttpGet]
-        public List<Values> Get()
+        public List<Contact> Get()
         {
             return program.GetList();
         }
 
         // POST /<ValuesController>
         [HttpPost]
-        public void Post([FromBody] Values value)
+        public void Post([FromBody] Contact value)
         {
             program.AddPhone(value);
         }
 
         // PUT /<ValuesController>/?index
         [HttpPut("{index}")]
-        public void Put(int index, [FromBody] Values value)
+        public void Put(int index, [FromBody] Contact value)
         {
             program.EditPhone(index, value);
         }

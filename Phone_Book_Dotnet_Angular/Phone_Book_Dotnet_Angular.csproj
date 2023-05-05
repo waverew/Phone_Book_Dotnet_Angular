@@ -8,10 +8,13 @@
     <SpaProxyServerUrl>https://localhost:44450</SpaProxyServerUrl>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>744b3ba4-1edc-43a3-aaf7-96035e115a44</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
   </ItemGroup>
 
@@ -24,10 +27,6 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\app.types.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\imgs\phone.png" />
   </ItemGroup>
 
   <ItemGroup>

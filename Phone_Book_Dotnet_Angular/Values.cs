@@ -9,40 +9,36 @@ using System.Text.Unicode;
 namespace Phone_Book_Dotnet_Angular
 {
 
-    public class Values
+    public class Contact
     {
 
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
     }
-    public class Program
+    public class PhoneBookDB
     {
         public string phonebook = "./Controllers/Phonebook.json";
-        public List<Values> state;
-        public Program()
+        public List<Contact> state;
+        public PhoneBookDB()
         {
             using FileStream jsond = File.OpenRead(this.phonebook);
-            this.state = System.Text.Json.JsonSerializer.Deserialize<List<Values>>(jsond);
+            this.state = System.Text.Json.JsonSerializer.Deserialize<List<Contact>>(jsond);
             jsond.Close();
         }
-        public void AddPhone(Values phone)
+        public void AddPhone(Contact phone)
         {
-            using FileStream jsond = File.OpenWrite(this.phonebook);
             this.state.Add(phone);
             var options1 = new JsonSerializerOptions
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
-            jsond.Close();
             var sortedJson = SortContacts(this.state);
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
         }
         public void RemovePhone(int id)
         {
-            using FileStream jsond = File.OpenWrite(this.phonebook);
-            jsond.Close();
             this.state.RemoveAt(id);
             var options1 = new JsonSerializerOptions
             {
@@ -52,10 +48,8 @@ namespace Phone_Book_Dotnet_Angular
             var sortedJson = SortContacts(this.state);
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
         }
-        public void EditPhone(int id, Values contact)
+        public void EditPhone(int id, Contact contact)
         {
-            using FileStream jsond = File.OpenWrite(this.phonebook);
-            jsond.Close();
             this.state[id] = contact;
             var options1 = new JsonSerializerOptions
             {
@@ -66,13 +60,13 @@ namespace Phone_Book_Dotnet_Angular
             File.WriteAllText(this.phonebook, System.Text.Json.JsonSerializer.Serialize(sortedJson, options1));
 
         }
-        private List<Values> SortContacts(List<Values> list)
+        private List<Contact> SortContacts(List<Contact> list)
         {
 
             return list.OrderBy(p => p.Surname, StringComparer.Create(new System.Globalization.CultureInfo("ru-RU"), false)).ToList();
         }
 
-        public List<Values> GetList()
+        public List<Contact> GetList()
         {
             return this.state;
         }

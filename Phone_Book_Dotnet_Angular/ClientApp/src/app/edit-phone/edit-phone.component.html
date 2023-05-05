@@ -19,8 +19,7 @@
           name="Name"
           [(ngModel)]="phone.name"
           maxlength="50"
-          required
-          pattern="[a-zA-Z ]*"
+          (keypress)="validateInputText($event)"
         />
         <div class="label-cont">
           <label>Фамилия: </label>
@@ -29,7 +28,8 @@
           type="text"
           name="Surname"
           [(ngModel)]="phone.surname"
-          maxlength="50"
+          (keypress)="validateInputText($event)"
+          (input)="checkIfSurnameEmpty()"
         />
         <div class="label-cont">
           <label>Номер: </label>
@@ -39,10 +39,11 @@
           name="Phone"
           [(ngModel)]="phone.phone"
           maxlength="50"
+          (keypress)="validateInputNumber($event)"
         />
       </div>
       <div class="but-cont" style="padding-top: 3rem">
-        <button type="submit">Сохранить</button>
+        <button type="submit" [disabled]="isButtonDisabled">Сохранить</button>
       </div>
     </form>
     <div class="but-cont del">

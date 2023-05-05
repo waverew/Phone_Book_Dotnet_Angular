@@ -16,6 +16,7 @@ export class EditPhoneComponent implements OnInit {
     phone: '',
   };
   phones: Values[] = [];
+  isButtonDisabled = false;
 
   constructor(
     private http: HttpClient,
@@ -66,5 +67,26 @@ export class EditPhoneComponent implements OnInit {
     const id = this.data.index;
     this.http.delete<void>(this.baseUrl + `values/${id}`).subscribe();
     window.location.reload();
+  }
+  public validateInputNumber(event: any) {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 43) {
+      return false;
+    }
+    return true;
+  }
+  public validateInputText(event: any) {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (!/^[а-яёА-ЯЁ]+$/.test(String.fromCharCode(charCode))) {
+      return false;
+    }
+    return true;
+  }
+  public checkIfSurnameEmpty() {
+    if (this.phone.surname != '') {
+      this.isButtonDisabled = false;
+    } else {
+      this.isButtonDisabled = true;
+    }
   }
 }
